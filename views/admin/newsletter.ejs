@@ -1,0 +1,43 @@
+
+<%-include("navbar.ejs")%>
+
+<div class="container-fluid mt-5 bg-white">
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <h3>Newsletter</h3>
+            <table class="table table-bordered table-sm table-striped mt-4">
+            <tr>
+                <th>ACTION</th>
+                <th>SN</th>
+                <TH> User Name</TH>
+                
+                <th>User Email</th>
+
+            </tr>
+            <%
+            for(i=0;i<newsletter.length;i++)
+            {
+                %>
+                 <tr>
+                    <td class="text-center">
+                       
+                        <a href="/admin/delete_newsletter/<%=newsletter[i].user_id%>" onclick="return confirm('Are You Sure...')">
+                            <button class="btn btn-warning p-0 pe-2 ps-2 mt-1">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </a>
+                    </td>
+                    <td><%=i+1%></td>
+                    
+                    <td><%=newsletter[i].user_name%></td>
+                    <td><%=newsletter[i].user_email%></td>
+                </tr>
+                <%
+            }
+            %>
+        </table>
+        </div>
+    </div>
+</div>
+
+<%-include("footer.ejs")%>

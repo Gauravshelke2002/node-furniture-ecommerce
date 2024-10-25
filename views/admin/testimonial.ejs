@@ -1,0 +1,86 @@
+
+
+<%-include("navbar.ejs")%>
+
+<form action="/admin/save_testimonial" method="post" enctype="multipart/form-data">
+    <div class="container p-4 bg-white">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Customer Review</h3>
+            </div>
+            <div class="col-md-12 mt-3">
+                Customer Photo
+                <input type="file" name="customer_photo" class="form-control">
+            </div>
+            <div class="col-md-12 mt-3">
+                Customer Name
+                <input type="text" name="customer_name" class="form-control">
+            </div>
+            <div class="col-md-12 mt-3">
+                Customer Position
+                <input type="text" name="customer_position" class="form-control">
+            </div>
+            <div class="col-md-12 mt-3">
+                Customer Message
+                <textarea name="customer_message" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 mt-3 text-center">
+               <button class="btn btn-primary">Save Customer Review</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<div class="container-fluid mt-5 bg-white">
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <h3>Customers List</h3>
+            <table class="table table-bordered table-sm table-striped mt-4">
+            <tr>
+                <th>ACTION</th>
+                <th>SN</th>
+                <TH>customer_photo</TH>
+                <th>customer_name</th>
+                <th>customer_poisition</th>
+                <th>customer_message</th>
+
+            </tr>
+            <%
+            for(i=0;i<testimonial.length;i++)
+            {
+                %>
+                 <tr>
+                    <td>
+                        <a href="/admin/edit_testimonial/<%=testimonial[i].customer_id%>">
+                            <button class="btn btn-primary p-0 pe-2 ps-2 mt-3">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+                        </a>
+                        <a href="/admin/delete_testimonial/<%=testimonial[i].customer_id%>" onclick="return confirm('Are You Sure...')">
+                            <button class="btn btn-warning p-0 pe-2 ps-2 mt-3">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </a>
+                    </td>
+                    <td><%=i+1%></td>
+                    <td>
+                        <img src="/uploads/<%=testimonial[i].customer_photo%>" width="100%" height="" >
+                       
+                        </td>
+                    <td><%=testimonial[i].customer_name%></td>
+                    <td><%=testimonial[i].customer_position%></td>
+                    <td><%=testimonial[i].customer_message%></td>
+
+
+                 </tr>
+                <%
+            }
+            %>
+        </table>
+        </div>
+    </div>
+</div>
+
+
+<%-include("footer.ejs")%>

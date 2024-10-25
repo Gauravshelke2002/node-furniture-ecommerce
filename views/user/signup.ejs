@@ -1,0 +1,29 @@
+<%-include("navbar.ejs")%>
+
+<form action="/do_register" method="post">
+  <div class="container-fluid mt-3 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-5  bg-white shadow p-5">
+        <center><h3 >SignUp Now</h3></center>
+        <br>
+        Enter User Name
+        <input type="text" class="form-control" name="user_name" />
+        <br>
+        Enter Mobile No
+        <input type="number" class="form-control" name="mobile_number" />
+        <br>
+        Enter Email Id.
+        <input type="email" class="form-control" name="email_id" />
+        <br>
+        Enter Password
+        <input type="password" class="form-control" name="password" />
+        <br>
+       <center><button class="btn btn-primary mb-2">Sign Up</button></center> 
+        <br>
+        <center><h6>Already User <a href="/login">Login Here</a></h6></center>
+      </div>
+    </div>
+  </div>
+</form>
+
+<%-include("footer.ejs")%>

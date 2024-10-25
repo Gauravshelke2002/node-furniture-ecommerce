@@ -1,0 +1,36 @@
+<%- include("navbar.ejs") %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 text-center "> </div> 
+        <div class="col-md-7 text-center "> 
+            <div class="card card-body w-75 mt-5  card-rounded" style="border-radius: 40px; padding: 20px;">
+                <h5 class="font-weight-bold text-danger fst-italic">Profile page.</h5>
+                <h5 class="mt-2 text-dark fst-italic"  style="text-align: justify;">User Name : <%= user_info.user_name%></h5>
+                <h5 class="mt-2 text-dark fst-italic"  style="text-align: justify;">Mobile No : <%= user_info.mobile_number%></h5>
+                <h5 class="mt-2 text-dark fst-italic"  style="text-align: justify;">Email Id : <%= user_info.email_id%></h5>
+                
+                
+                
+                <div class=" btn-group d-flex justify-content-center">
+            
+                
+                <a href="/my_orders"><button class="btn btn-primary mt-3">My orders</button></a>
+                <a href="/edit_profile"><button class="btn btn-primary mt-3">Edit</button></a>
+
+                <a href="/logout" > <button class="btn btn-primary mt-3 ">logout</button></a>
+
+
+            </div>
+            
+            </div>
+        </div> 
+
+          
+    </div>
+</div>
+
+   
+  
+<br><br><br><br><br><br>
+
+<%- include("footer.ejs") %>

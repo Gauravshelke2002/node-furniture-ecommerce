@@ -1,0 +1,49 @@
+
+<%-include("navbar.ejs")%>
+
+<div class="container-fluid mt-5 bg-white">
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <h3>Customers data</h3>
+            <table class="table table-bordered table-sm table-striped mt-4">
+            <tr>
+                <th>ACTION</th>
+                <th>SN</th>
+                <TH>Customer First_Name</TH>
+                <TH>Customer Last_Name</TH>
+                <th>Customer Email</th>
+                <th>Customer Message</th>
+
+            </tr>
+            <%
+            for(i=0;i<customers.length;i++)
+            {
+                %>
+                 <tr>
+                    <td class="text-center">
+                       
+                        <a href="/admin/delete_customer/<%=customers[i].customer_id%>" onclick="return confirm('Are You Sure...')">
+                            <button class="btn btn-warning p-0 pe-2 ps-2 mt-1">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </a>
+                    </td>
+                    <td><%=i+1%></td>
+                    
+                    <td><%=customers[i].first_name%></td>
+                    <td><%=customers[i].last_name%></td>
+                    <td><%=customers[i].email%></td>
+                    <td><%=customers[i].message%></td>
+
+
+
+                 </tr>
+                <%
+            }
+            %>
+        </table>
+        </div>
+    </div>
+</div>
+
+<%-include("footer.ejs")%>

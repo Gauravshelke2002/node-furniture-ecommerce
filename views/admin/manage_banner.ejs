@@ -1,0 +1,74 @@
+<%- include("navbar.ejs") %>
+
+<form action="/admin/save_banner" method="post" enctype="multipart/form-data">
+    <div class="container p-3 bg-white">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Manage Banner</h3>
+            </div>
+            <div class="col-md-6 mb-3">
+                Enter Title
+                <input type="text" name="banner_title" value="<%=banner_info.banner_title%>" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                Enter Details
+                <input type="text" name="banner_details" value="<%=banner_info.banner_details%>"  class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+                Shop Now Link
+                <input type="text" name="banner_link" value="<%=banner_info.banner_link%>"  class="form-control">
+            </div>
+            <div class="col-md-4 mb-3">
+                Banner Image
+                <input type="file" name="banner_image" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <img src="/uploads/<%=banner_info.banner_image%>" width="100%">
+            </div>
+            <div class="col-md-12 mb-3 text-center">
+                
+             <button class="btn btn-primary">Save Banner</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="container-fluid mt-5 bg-white">
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <h3>Banner table</h3>
+            <table class="table table-bordered table-sm table-striped mt-4">
+            <tr>
+                <th>SN</th>
+                <TH>banner_title</TH>
+                <th>banner_details</th>
+                <th>banner_link</th>
+                <th>banner_image</th>
+
+            </tr>
+            <%
+            for(i=0;i<banner_i.length;i++)
+            {
+                %>
+                 <tr>
+                    
+                    <td><%=i+1%></td>
+                   
+                    <td><%=banner_i[i].banner_title%></td>
+                    <td><%=banner_i[i].banner_details%></td>
+                    <td><%=banner_i[i].banner_link%></td>
+                    <td>
+                        <img src="/uploads/<%=banner_i[i].banner_image%>" width="100%" height="100px" >
+                       
+                        </td>
+
+
+                 </tr>
+                <%
+            }
+            %>
+        </table>
+        </div>
+    </div>
+</div>
+<%- include("footer.ejs") %>
